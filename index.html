@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Haojie Yang</title>
+<meta name="description" content="Haojie Yang — Filmmaker | Photographer">
+<meta property="og:title" content="Haojie Yang">
+<meta property="og:description" content="Filmmaker | Photographer">
+<meta property="og:image" content="img/cov-film.jpg">
+<style>
+/* Layout: 1200px centered column on a textured navy ground; alternating 60/40 image+panel covers; project pages stack media modules. Replica of the Adobe Portfolio theme. */
+:root {
+  --ground: #28446B;
+  --panel: #202546;
+  --panel-hover: rgba(32, 37, 70, 0.87);
+  --masthead: #4E4B6D;
+  --name: #B5AC97;
+  --rose: #D45E8B;
+  --rose-deep: #B8557B;
+  --mauve: #B89CAB;
+  --ink: #191919;
+  --muted: #999999;
+  --soft: #A9A9A9;
+  --white: #FFFFFF;
+  --tile: #F2F2F2;
+  --red: #D10808;
+  --video: #191919;
+  --serif: Georgia, "Times New Roman", "Songti SC", serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--ground); }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--serif);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+
+.wrap {
+  max-width: calc(1200px + 2 * max(16px, env(safe-area-inset-left, 0px)));
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 1232px) { .wrap { padding-left: 0; padding-right: 0; max-width: 1200px; } }
+
+/* ---------- Masthead ---------- */
+.masthead {
+  background: var(--masthead);
+  display: flex; justify-content: center;
+  padding: 58px 0 36px;
+  margin-bottom: 62px;
+}
+.masthead-inner { width: 100%; max-width: 800px; padding-inline: 0; }
+.masthead h1 {
+  margin: 0 0 66px;
+  font: 700 48px/60px var(--serif);
+  color: var(--name);
+  text-align: center;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.masthead .tagline {
+  margin: 55px 0 0;
+  font: italic 700 16px/44px var(--serif);
+  color: var(--rose);
+  text-align: right;
+  white-space: pre-wrap;
+}
+.masthead.project { padding-bottom: 44px; margin-bottom: 50px; }
+.masthead.project h1 { color: var(--rose-deep); margin-bottom: 15px; }
+.masthead.project .tagline {
+  margin: 0;
+  font: 400 20px/28px var(--serif);
+  color: var(--muted);
+  text-align: center;
+  white-space: pre-line;
+}
+.masthead-buttons { padding-top: 38px; text-align: center; }
+.pill {
+  display: inline-block;
+  height: 40px; line-height: 40px;
+  padding: 0 30px;
+  border: 1px solid rgba(25, 25, 25, 0.6);
+  border-radius: 100px;
+  color: var(--ink);
+  font: 700 12px/40px var(--serif);
+  text-transform: uppercase;
+  transition: border-color .2s ease;
+}
+.pill:hover { border-color: rgba(25, 25, 25, 0.3); }
+
+/* ---------- Home covers ---------- */
+.covers { display: flex; flex-direction: column; }
+.cover {
+  position: relative; display: block;
+  margin: 40px 0 100px;
+  height: 500px;
+}
+.cover-img {
+  position: absolute; top: 0; height: 100%; width: 60.1%;
+  overflow: hidden; right: 0;
+}
+.cover-img img { width: 100%; height: 100%; object-fit: cover; }
+.cover-details {
+  position: absolute; top: 0; height: 100%; width: 40%; left: 0;
+  background: var(--panel);
+  display: flex; align-items: center;
+  transition: background .2s ease;
+}
+.cover:nth-child(even) .cover-img { right: auto; left: 0; }
+.cover:nth-child(even) .cover-details { left: auto; right: 0; }
+.cover:hover .cover-details { background: var(--panel-hover); }
+.details-inner { width: 100%; padding: 6% 8%; text-align: center; }
+.cover .t { color: var(--white); font: 500 20px/24px var(--serif); padding-bottom: 3px; white-space: pre-wrap; }
+.cover .d { color: var(--muted); font: 400 14px/18px var(--serif); padding-top: 12px; white-space: pre-line; }
+.cover .y { color: var(--muted); font: 400 14px/18px var(--serif); }
+
+/* ---------- Project modules ---------- */
+.modules { display: flex; flex-direction: column; align-items: center; }
+.m-video { width: 76%; max-width: 100%; padding: 100px 0; }
+.m-video.first-tall { padding-bottom: 145px; }
+.video-card {
+  position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; max-width: 100%;
+  background: var(--video);
+  overflow: hidden;
+}
+.video-card::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(60% 80% at 70% 50%, rgba(184, 85, 123, 0.28), rgba(25, 25, 25, 0) 70%);
+  transition: opacity .3s ease; opacity: .7;
+}
+.video-card:hover::before { opacity: 1; }
+.video-card .play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 76px; height: 76px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  display: grid; place-items: center;
+  transition: transform .25s ease, border-color .25s ease;
+}
+.video-card:hover .play { transform: translate(-50%, -50%) scale(1.06); border-color: var(--white); }
+.video-card .play svg { width: 26px; height: 26px; margin-left: 4px; fill: var(--white); }
+.video-card .src {
+  position: absolute; left: 24px; bottom: 20px;
+  font: italic 400 13px/16px var(--serif); color: rgba(255, 255, 255, 0.6);
+  letter-spacing: .02em;
+}
+.caption { max-width: 800px; width: calc(100% - 0px); margin: 0 auto; }
+.caption p {
+  margin: 0; padding: 10px 0 20px;
+  font: italic 700 24px/1.25 var(--serif);
+  color: var(--mauve);
+  text-align: right;
+}
+.m-text { width: 100%; max-width: 800px; text-align: center; }
+.m-text p { margin: 0; padding: 5px 0 10px; font: 400 28px/1.3 var(--serif); color: var(--soft); }
+.m-image { width: 64%; max-width: 100%; padding-top: 12px; padding-bottom: 20px; }
+.m-image img { width: 100%; height: auto; }
+.m-tree { display: flex; align-items: center; justify-content: center; gap: 8px; padding-bottom: 0; width: 100%; }
+.m-tree figure { margin: 0; }
+.m-column { width: 58%; max-width: 100%; padding: 110px 0 100px; display: flex; flex-direction: column; gap: 100px; }
+.m-column img { width: 100%; height: auto; }
+.m-grid { width: 100%; display: flex; flex-direction: column; }
+.m-grid .row { display: flex; }
+.m-grid .row > figure { margin: 0; min-width: 0; }
+.m-grid img { width: 100%; height: auto; }
+.ph { background: rgba(0, 0, 0, 0.03); }
+
+/* ---------- You may also like ---------- */
+.other { padding-top: 80px; }
+.other h3 { margin: 0 0 30px; font: 700 20px/20px var(--serif); color: var(--ink); text-align: left; }
+.other-grid { display: flex; gap: 20px; }
+.ocover { flex: 1 1 0; min-width: 0; display: block; }
+.ocover .oimg { aspect-ratio: 1 / 0.74925; overflow: hidden; max-width: 100%; }
+.ocover .oimg img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.ocover:hover .oimg img { transform: scale(1.03); }
+.ocover .odet { background: var(--tile); padding: 11% 8%; text-align: center; }
+.ocover .ot { color: var(--red); font: 500 18px/20px var(--serif); padding-bottom: 3px; text-transform: uppercase; }
+
+/* ---------- Footer & back to top ---------- */
+.site-footer { padding: 130px 0; text-align: center; font: 400 16px/30px var(--serif); color: var(--muted); }
+.to-top {
+  position: fixed; z-index: 3;
+  right: calc(40px + env(safe-area-inset-right, 0px));
+  bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+  width: 60px; height: 60px; border-radius: 60px;
+  background: rgba(145, 145, 145, 0.2);
+  border: 0; cursor: pointer; display: grid; place-items: center;
+  transition: background .2s ease, opacity .2s ease;
+}
+.to-top:hover { background: rgba(145, 145, 145, 0.3); }
+.to-top svg { width: 24px; height: 24px; fill: #212121; opacity: .45; }
+.to-top[data-off] { opacity: 0; pointer-events: none; }
+
+/* ---------- Responsive (matches the original breakpoints) ---------- */
+@media (max-width: 932px) {
+  .wrap { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+  .masthead { padding: 28px 16px 19px; margin-bottom: 28px; }
+  .masthead.project { padding-bottom: 19px; margin-bottom: 28px; }
+  .masthead h1 { font-size: 24px; line-height: 30px; margin-bottom: 29px; }
+  .masthead.project h1 { margin-bottom: 10px; }
+  .masthead .tagline { font-size: 14px; line-height: 20px; margin-top: 25px; }
+  .masthead.project .tagline { font-size: 14px; line-height: 20px; margin-top: 0; }
+  .masthead-buttons { padding-top: 20px; }
+  .pill { height: 38px; line-height: 38px; }
+  .cover { height: 400px; }
+  .cover .t { font-size: 17px; line-height: 20px; padding-bottom: 5px; }
+  .cover .d, .cover .y { line-height: 20px; }
+  .cover .d { padding-top: 10px; }
+  .m-video { width: 100%; padding: 50px 0; }
+  .m-video.first-tall { padding-bottom: 70px; }
+  .caption p { font-size: 18px; }
+  .m-text p { font-size: 22px; }
+  .m-image, .m-column { width: 100%; }
+  .m-column { padding: 50px 0; gap: 40px; }
+  .other { padding-top: 34px; }
+  .other h3 { font-size: 17px; line-height: 17px; margin-bottom: 18px; }
+  .ocover:nth-child(n+3) { display: none; }
+  .ocover .ot { font-size: 17px; }
+  .site-footer { font-size: 14px; line-height: 20px; padding: 48px 0; }
+  .to-top { display: none; }
+}
+@media (max-width: 540px) {
+  .masthead { padding-top: 24px; padding-bottom: 17px; margin-bottom: 25px; }
+  .masthead h1 { font-size: 21px; line-height: 26px; margin-bottom: 25px; }
+  .masthead .tagline { margin-top: 22px; }
+  .masthead-buttons { padding-top: 17px; }
+  .pill { height: 35px; line-height: 35px; }
+  .cover { height: auto; margin: 20px 0 50px; }
+  .cover-img, .cover-details,
+  .cover:nth-child(even) .cover-img, .cover:nth-child(even) .cover-details { position: relative; width: 100%; left: auto; right: auto; }
+  .cover-img { height: 325px; }
+  .cover-details { height: auto; }
+  .details-inner { padding: 28px 8%; }
+  .cover .t { font-size: 14px; line-height: 17px; padding-bottom: 4px; }
+  .m-tree { flex-direction: column; }
+  .m-tree figure { width: 100% !important; }
+  .m-grid .row { flex-direction: column; }
+  .m-grid .row > figure { flex: none !important; width: 100%; }
+  .video-card .play { width: 60px; height: 60px; }
+  .other { padding-top: 29px; }
+  .other h3 { font-size: 14px; line-height: 14px; margin-bottom: 16px; }
+  .ocover:nth-child(n+2) { display: none; }
+  .ocover .ot { font-size: 14px; }
+  .site-footer { padding: 41px 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+.video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; max-width: 100%; background: var(--video); }
+.video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; background: #000; }
+.video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app" aria-live="polite"></div>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top" data-off>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5.2 4.6 12.6l1.4 1.4 5-5V19h2V9l5 5 1.4-1.4z"/></svg>
+</button>
+
+<script>
+const IMG = n => `img/${n}.jpg`;
+
+const PAGES = {
+  film: {
+    title: "Films",
+    year: "2023",
+    blurb: "As a filmmaker,\nhe stays humble stays hungry, striving to be a storyteller of life.",
+    cover: "cov-film",
+    modules: [
+      { type: "video", host: "yt", id: "8cX3HNRRhoc", cap: "Documentary for LineUp Surf Club" },
+      { type: "video", host: "yt", id: "7v7UU6uPp_o", cap: "Sleight of Hand" },
+      { type: "video", host: "ccv", id: "2qVDPo6DH8m", cap: "Family First" },
+      { type: "video", host: "ccv", id: "IoEQkwowM4s", cap: "1905 - Revives & Sustains" },
+      { type: "video", host: "ccv", id: "CjfM3Q9BUB6", cap: "Patient (2D Animation)" },
+      { type: "video", host: "ccv", id: "NkyN43zPskK", cap: "Depraved Priest" },
+      { type: "video", host: "yt", id: "BZ8l3YwKFDg", cap: "Editing Work" },
+      { type: "video", host: "ccv", id: "CCgNTGoQnGp", cap: "Static Apnea" }
+    ],
+    other: ["artwork", "photop", "photol"]
+  },
+  "harvard-athletics": {
+    title: "Harvard Athletics",
+    year: "2023",
+    blurb: "Internship: Creative Video Producer",
+    tagline: "Harvard University | Creative Producer Internship Work",
+    cover: "cov-harvard",
+    modules: [
+      { type: "video", host: "ccv", id: "QDWnLQSNqyM", tall: true },
+      { type: "text", text: "Reference & Feedback" },
+      { type: "image", src: "ha-1", ar: 768 / 308 },
+      { type: "tree", items: [["ha-2", 380, 427], ["ha-3", 282, 505]] },
+      { type: "video", host: "ccv", id: "BggzRHtI4r-" },
+      { type: "video", host: "ccv", id: "KS87He-AQBt" },
+      { type: "video", host: "ccv", id: "8WT-k7SJAKg" },
+      { type: "video", host: "ccv", id: "UNg2mfWZAgg" },
+      { type: "video", host: "ccv", id: "MMSkaRWhqQF" }
+    ],
+    other: ["photop", "film", "photol"]
+  },
+  artwork: {
+    title: "Artwork",
+    year: "2023",
+    blurb: "Painting & Drawing",
+    tagline: "As a surfer,\nhe traveled alone in Hawaii, surfing for 42 consecutive days, no matter sunny or stormy. Averaging 4 hours surfing per day.",
+    cover: "cov-artwork",
+    modules: [
+      { type: "column", items: [["art-1", 696, 712], ["art-2", 696, 513], ["art-3", 696, 945], ["art-4", 696, 1044], ["art-5", 696, 543], ["art-6", 696, 1043], ["art-7", 696, 892]] }
+    ],
+    other: ["photop", "harvard-athletics", "photol"]
+  },
+  photol: {
+    title: "Photography - Landscape",
+    year: "2023",
+    blurb: "As a photographer,\nhe is always passionate about exploring the beauty and warmth that are often overlooked.",
+    cover: "cov-photol",
+    modules: [
+      { type: "grid", gap: 8, pt: 70, pb: 160, rows: [
+        [["pl-01", 647, 364], ["pl-02", 545, 364]],
+        [["pl-03", 596, 397], ["pl-04", 596, 397]],
+        [["pl-05", 596, 398], ["pl-06", 597, 398]],
+        [["pl-07", 596, 397], ["pl-08", 596, 397]],
+        [["pl-09", 647, 364], ["pl-10", 545, 364]],
+        [["pl-11", 596, 397], ["pl-12", 596, 397]],
+        [["pl-13", 545, 364], ["pl-14", 647, 364]],
+        [["pl-15", 596, 397], ["pl-16", 596, 397]],
+        [["pl-17", 596, 397], ["pl-18", 596, 397]],
+        [["pl-19", 596, 397], ["pl-20", 596, 397]],
+        [["pl-21", 1200, 800]]
+      ] }
+    ],
+    other: ["harvard-athletics", "photop", "film"]
+  },
+  photop: {
+    title: "Photography - Portrait",
+    year: "2023",
+    blurb: "Interpretation: The letter delivered incredible news but there was no one to share it with.",
+    tagline: "As a free diver,\nhe once dived 29.7 meters to the bottom of the ocean, grabbed a handful of soil, and brought it back to the surface.",
+    cover: "cov-photop",
+    modules: [
+      { type: "grid", gap: 16, pt: 127, pb: 174, rows: [
+        [["pp-01", 347, 231], ["pp-02", 411, 231], ["pp-03", 411, 231]],
+        [["pp-04", 435, 245], ["pp-05", 367, 245], ["pp-06", 367, 245]],
+        [["pp-07", 389, 260], ["pp-08", 389, 260], ["pp-09", 389, 260]],
+        [["pp-10", 389, 260], ["pp-11", 389, 260], ["pp-12", 389, 260]],
+        [["pp-13", 614, 345], ["pp-14", 570, 345]]
+      ] }
+    ],
+    other: ["artwork", "film", "photol"]
+  }
+};
+const ORDER = ["film", "harvard-athletics", "artwork", "photol", "photop"];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const img = (n, w, h, alt, eager) =>
+  `<img src="${IMG(n)}" ${w ? `width="${w}" height="${h}"` : ""} alt="${esc(alt || "")}" ${eager ? "" : 'loading="lazy"'} decoding="async">`;
+
+const PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4v16l14-8z"/></svg>';
+function embedUrl(m) {
+  if (m.host === "bili") return `https://player.bilibili.com/player.html?bvid=${m.id}&autoplay=0&high_quality=1&danmaku=0`;
+  if (m.host === "yt") return `https://www.youtube.com/embed/${m.id}`;
+  if (m.host === "file") return m.id;
+  return `https://www-ccv.adobe.io/v1/player/ccv/${m.id}/embed?bgcolor=%23191919&lazyLoading=true&api_key=BehancePro2View`;
+}
+
+function renderModule(m, i) {
+  if (m.type === "video") {
+    const player = m.host === "file"
+      ? `<video src="${m.id}" controls preload="metadata" playsinline></video>`
+      : `<iframe src="${embedUrl(m)}" title="${esc(m.cap || "Video")}" loading="lazy" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen scrolling="no"></iframe>`;
+    return `<section class="m-video${m.tall ? " first-tall" : ""}">
+      <div class="video-frame">${player}</div>
+      ${m.cap ? `<div class="caption"><p>${esc(m.cap)}</p></div>` : ""}
+    </section>`;
+  }
+  if (m.type === "text") return `<section class="m-text"><p>${esc(m.text)}</p></section>`;
+  if (m.type === "image") return `<section class="m-image">${img(m.src, 768, 308, "")}</section>`;
+  if (m.type === "tree") {
+    return `<section class="m-tree">${m.items.map(([n, w, h]) =>
+      `<figure style="width:${w}px;max-width:100%">${img(n, w, h, "")}</figure>`).join("")}</section>`;
+  }
+  if (m.type === "column") {
+    return `<section class="m-column">${m.items.map(([n, w, h]) => img(n, w, h, "")).join("")}</section>`;
+  }
+  if (m.type === "grid") {
+    return `<section class="m-grid" style="padding:${m.pt}px 0 ${m.pb}px;gap:${m.gap}px">${m.rows.map(row =>
+      `<div class="row" style="gap:${m.gap}px">${row.map(([n, w, h]) =>
+        `<figure style="flex:${(w / h).toFixed(4)} 1 0">${img(n, w, h, "")}</figure>`).join("")}</div>`).join("")}</section>`;
+  }
+  return "";
+}
+
+const footer = `<footer class="site-footer">© Haojie Yang</footer>`;
+
+function renderHome() {
+  document.title = "Haojie Yang";
+  return `
+  <header class="masthead"><div class="masthead-inner">
+    <h1>Haojie Yang</h1>
+    <p class="tagline">Filmmaker ｜ Photographer  =  haojie@bu.edu</p>
+  </div></header>
+  <main class="covers">
+    ${ORDER.map((k, i) => {
+      const p = PAGES[k];
+      return `<a class="cover" href="#${k}">
+        <div class="cover-img">${img(p.cover, 1280, 960, p.title, i < 2)}</div>
+        <div class="cover-details"><div class="details-inner">
+          <div class="t">${esc(p.title)}</div>
+          <div class="d">${esc(p.blurb)}</div>
+          <div class="y">${p.year}</div>
+        </div></div>
+      </a>`;
+    }).join("")}
+  </main>
+  ${footer}`;
+}
+
+function renderProject(k) {
+  const p = PAGES[k];
+  document.title = `Haojie Yang - ${p.title}`;
+  return `
+  <header class="masthead project"><div class="masthead-inner">
+    <h1>${esc(p.title)}</h1>
+    <p class="tagline">${esc(p.tagline || p.blurb)}</p>
+    <div class="masthead-buttons"><a class="pill" href="#home">Home</a></div>
+  </div></header>
+  <main>
+    <div class="modules">${p.modules.map(renderModule).join("")}</div>
+    <section class="other">
+      <h3>You may also like</h3>
+      <div class="other-grid">${p.other.map(o => `
+        <a class="ocover" href="#${o}">
+          <div class="oimg">${img(PAGES[o].cover, 1280, 960, PAGES[o].title)}</div>
+          <div class="odet"><div class="ot">${esc(PAGES[o].title)}</div></div>
+        </a>`).join("")}
+      </div>
+    </section>
+  </main>
+  ${footer}`;
+}
+
+const app = document.getElementById("app");
+function route() {
+  const k = location.hash.replace("#", "");
+  app.innerHTML = PAGES[k] ? renderProject(k) : renderHome();
+  window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", route);
+route();
+
+const toTop = document.getElementById("toTop");
+toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+const onScroll = () => { if (window.scrollY > 400) toTop.removeAttribute("data-off"); else toTop.setAttribute("data-off", ""); };
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>
