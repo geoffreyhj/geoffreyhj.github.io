@@ -284,7 +284,7 @@ const PAGES = {
       { type: "video", host: "yt", id: "BZ8l3YwKFDg", cap: "Editing Work" },
       { type: "video", host: "ccv", id: "CCgNTGoQnGp", cap: "Static Apnea" }
     ],
-    other: ["artwork", "photop", "photol"]
+    other: ["artwork", "photol", "harvard-athletics"]
   },
   "harvard-athletics": {
     title: "Harvard Athletics",
@@ -303,7 +303,7 @@ const PAGES = {
       { type: "video", host: "ccv", id: "UNg2mfWZAgg" },
       { type: "video", host: "ccv", id: "MMSkaRWhqQF" }
     ],
-    other: ["photop", "film", "photol"]
+    other: ["photol", "film", "artwork"]
   },
   artwork: {
     title: "Artwork",
@@ -314,49 +314,44 @@ const PAGES = {
     modules: [
       { type: "column", items: [["art-1", 696, 712], ["art-2", 696, 513], ["art-3", 696, 945], ["art-4", 696, 1044], ["art-5", 696, 543], ["art-6", 696, 1043], ["art-7", 696, 892]] }
     ],
-    other: ["photop", "harvard-athletics", "photol"]
+    other: ["photol", "harvard-athletics", "film"]
   },
   photol: {
-    title: "Photography - Landscape",
+    title: "Photography",
     year: "2023",
     blurb: "As a photographer,\nhe is always passionate about exploring the beauty and warmth that are often overlooked.",
     cover: "cov-photol",
     modules: [
       { type: "grid", gap: 8, pt: 70, pb: 160, rows: [
-        [["pl-01", 647, 364], ["pl-02", 545, 364]],
-        [["pl-03", 596, 397], ["pl-04", 596, 397]],
-        [["pl-05", 596, 398], ["pl-06", 597, 398]],
-        [["pl-07", 596, 397], ["pl-08", 596, 397]],
-        [["pl-09", 647, 364], ["pl-10", 545, 364]],
-        [["pl-11", 596, 397], ["pl-12", 596, 397]],
-        [["pl-13", 545, 364], ["pl-14", 647, 364]],
-        [["pl-15", 596, 397], ["pl-16", 596, 397]],
-        [["pl-17", 596, 397], ["pl-18", 596, 397]],
-        [["pl-19", 596, 397], ["pl-20", 596, 397]],
-        [["pl-21", 1200, 800]]
+        [["t-01", 1600, 1066], ["t-02", 1600, 900]],
+        [["t-04", 1600, 900], ["t-10", 1600, 900]],
+        [["t-09", 1600, 900], ["t-05", 1600, 1066]],
+        [["t-06", 1600, 800], ["t-07", 1600, 900]],
+        [["pl-10", 1600, 1067], ["pp-12", 1600, 1066]],
+        [["pp-11", 1600, 1066], ["t-08", 1600, 900]],
+        [["t-03", 1600, 1066], ["pl-14", 1600, 900]],
+        [["pl-13", 1600, 1067], ["pl-09", 1600, 900]],
+        [["pl-08", 1600, 1067], ["pl-12", 1600, 1066]],
+        [["pp-01", 1600, 1067], ["pp-02", 1600, 900]],
+        [["pp-03", 1600, 900], ["pp-04", 1600, 900]],
+        [["pl-02", 1600, 1067], ["pl-03", 1600, 1067]],
+        [["pl-06", 1600, 1067], ["pl-07", 1600, 1067]],
+        [["pl-05", 1600, 1067], ["pl-20", 1600, 1067]],
+        [["pl-04", 1600, 1067], ["pl-01", 1600, 900]],
+        [["pp-08", 1600, 1067], ["pl-15", 1600, 1067]],
+        [["pl-16", 1600, 1067], ["pl-17", 1600, 1067]],
+        [["t-11", 1600, 900], ["t-12", 1600, 900]],
+        [["t-13", 1600, 1066], ["t-14", 1600, 1066]],
+        [["pl-18", 1600, 1067], ["pl-11", 1600, 1066]],
+        [["pl-19", 1600, 1067], ["pp-10", 1600, 1067]],
+        [["pp-05", 1600, 1068], ["pp-06", 1600, 1067]],
+        [["pl-21", 2400, 1600]]
       ] }
     ],
-    other: ["harvard-athletics", "photop", "film"]
-  },
-  photop: {
-    title: "Photography - Portrait",
-    year: "2023",
-    blurb: "Interpretation: The letter delivered incredible news but there was no one to share it with.",
-    tagline: "As a free diver,\nhe once dived 29.7 meters to the bottom of the ocean, grabbed a handful of soil, and brought it back to the surface.",
-    cover: "cov-photop",
-    modules: [
-      { type: "grid", gap: 16, pt: 127, pb: 174, rows: [
-        [["pp-01", 347, 231], ["pp-02", 411, 231], ["pp-03", 411, 231]],
-        [["pp-04", 435, 245], ["pp-05", 367, 245], ["pp-06", 367, 245]],
-        [["pp-07", 389, 260], ["pp-08", 389, 260], ["pp-09", 389, 260]],
-        [["pp-10", 389, 260], ["pp-11", 389, 260], ["pp-12", 389, 260]],
-        [["pp-13", 614, 345], ["pp-14", 570, 345]]
-      ] }
-    ],
-    other: ["artwork", "film", "photol"]
+    other: ["harvard-athletics", "film", "artwork"]
   }
 };
-const ORDER = ["film", "harvard-athletics", "artwork", "photol", "photop"];
+const ORDER = ["film", "harvard-athletics", "artwork", "photol"];
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const img = (n, w, h, alt, eager) =>
@@ -448,7 +443,8 @@ function renderProject(k) {
 
 const app = document.getElementById("app");
 function route() {
-  const k = location.hash.replace("#", "");
+  let k = location.hash.replace("#", "");
+  if (k === "photop" || k === "photography") k = "photol";
   app.innerHTML = PAGES[k] ? renderProject(k) : renderHome();
   window.scrollTo(0, 0);
 }
